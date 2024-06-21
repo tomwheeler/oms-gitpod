@@ -1,0 +1,11 @@
+{
+    # define top-level directories to show in file explorer
+    "folders": [
+        {
+            "path": "../reference-app-orders-go"
+        },
+        {
+            "path": "../reference-app-orders-web"
+        }
+    ]
+}
