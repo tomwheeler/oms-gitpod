@@ -15,4 +15,4 @@ image from which the workspace is created (though I'd want
 to fork this from the edu one on which it's currently based, 
 since these tasks aren't relevant to our training courses).
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/tomwheeler/oms=gitpod)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/tomwheeler/oms-gitpod)
