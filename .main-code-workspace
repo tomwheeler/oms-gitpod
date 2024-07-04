@@ -13,6 +13,7 @@
             "go": "/home/linuxbrew/.linuxbrew/bin/go",
         },
         "markdown.styles": ["/workspace/oms-gitpod/.style.css"],
+        "explorer.openEditors.visible": 0,
         "terminal.integrated.defaultProfile.linux": "bash",
         "terminal.integrated.profiles.linux": {
             "bash": {
