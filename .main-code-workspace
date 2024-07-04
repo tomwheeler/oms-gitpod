@@ -17,7 +17,7 @@
         "terminal.integrated.profiles.linux": {
             "bash": {
                 "path": "/usr/bin/bash",
-                "args": ["-l", "-c 'cd /workspace/reference-app-orders-go; clear'"]
+                "args": ["-l", "-c cd /workspace/reference-app-orders-go; clear"]
             }
         },
         "workbench.startupEditor": "none",
