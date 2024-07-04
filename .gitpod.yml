@@ -4,8 +4,8 @@ additionalRepositories:
   - url: https://github.com/temporalio/reference-app-orders-web
 workspaceLocation: oms-gitpod/.main-code-workspace
 tasks:
-    # task links a bash configuration file to a location that is not
-    # specific to this course (/etc/bash.bashrc sources it from there)
+  # task links a bash configuration file to a location that is not
+  # specific to this course (/etc/bash.bashrc sources it from there)
   - name: Shell configuration
     init: |
       ln /workspace/oms-gitpod/.bash.cfg /workspace/.bash.cfg
@@ -19,12 +19,13 @@ tasks:
     init: |
       go install honnef.co/go/tools/cmd/staticcheck@latest
       exit;
-    # task retrieves the project dependencies
+  # task retrieves the project dependencies
   - name: Go Get Fetcher 
     init: |
       go get -v -t -d ./...
+      gp sync-done go-dependencies-fetched
       exit;
-    # task starts the Temporal Service via the CLI
+  # task starts the Temporal Service via the CLI
   - name: Temporal Local Development Server
     command: |
       export TEMPORAL_NOTIFY_ON_NEW_VERSION=false
@@ -39,6 +40,7 @@ tasks:
       clear
       echo "Starting OMS Worker #1"
       cd /workspace/reference-app-orders-go
+      gp sync-await go-dependencies-fetched
       go run ./cmd/oms worker
     openMode: tab-after
   - name: OMS Worker 2
@@ -47,6 +49,7 @@ tasks:
       clear
       echo "Starting OMS Worker #2"
       cd /workspace/reference-app-orders-go
+      gp sync-await go-dependencies-fetched
       go run ./cmd/oms worker
     openMode: tab-after
   - name: API Server
@@ -55,6 +58,7 @@ tasks:
       clear
       echo "Starting OMS API Server"
       cd /workspace/reference-app-orders-go
+      gp sync-await go-dependencies-fetched
       go run ./cmd/oms api
     openMode: tab-after
   - name: Web Application
@@ -69,6 +73,9 @@ tasks:
       cd /workspace/reference-app-orders-web
       pnpm i && pnpm dev
     openMode: tab-after
+  # TODO: Would improve UX to show a "Launching application..." message in the Simple
+  #       Browser while everything is getting set up, replacing that with the web app
+  #       once it's running.
   - name: Display Web UI
     command: |
       echo "Waiting for server...."
