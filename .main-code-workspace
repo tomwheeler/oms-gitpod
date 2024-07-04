@@ -22,7 +22,7 @@
             "bash": {
                 "args": [
                     "-c", 
-                    "source /workspace/oms-gitpod/.bash.cfg; cd /workspace/reference-app-orders-go; clear; exec /usr/bin/bash --login"]
+                    "source /workspace/oms-gitpod/.bash.cfg; clear; exec /usr/bin/bash --login"]
             }
         },
         "workbench.startupEditor": "none",
