@@ -14,7 +14,7 @@ tasks:
     init: |
       sudo npm install -g pnpm
       gp sync-done pnpm-install
-      #exit;
+      exit;
   - name: install staticcheck
     init: |
       go install honnef.co/go/tools/cmd/staticcheck@latest
