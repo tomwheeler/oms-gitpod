@@ -59,7 +59,10 @@ tasks:
     openMode: tab-after
   - name: Web Application
     command: |
+      # Wait for TypeScript stuff to finish downloading
       gp sync-await pnpm-install
+      # Wait for API servers to accept connections
+      gp ports await 8081 && gp ports await 8082 && gp ports await 8083 && gp ports await 8084
       source /workspace/oms-gitpod/.bash.cfg
       clear
       echo "Starting OMS Web Application"
@@ -69,10 +72,9 @@ tasks:
   - name: Display Web UI
     command: |
       echo "Waiting for server...."
-      #gp ports await 8080 && gp preview $(gp url 8080)
       gp ports await 5173 && gp preview $(gp url 5173)
       exit;
-  - name: Display Exercise Instructions
+  - name: Display README
     command: |
       gp open /workspace/reference-app-orders-go/README.md
       exit;
@@ -80,13 +82,15 @@ tasks:
   - name: Worker
     command: |
       source /workspace/oms-gitpod/.bash.cfg
+      cd /workspace/reference-app-orders-go
       clear
       echo "Use this terminal to run commands.."
   - name: Terminal
     command: |
       source /workspace/oms-gitpod/.bash.cfg
+      cd /workspace/reference-app-orders-go/
       clear
-      echo "Use this terminal to run commands.."
+      echo "This is an additional terminal to run commands.."
     openMode: split-right
 
 ports:
