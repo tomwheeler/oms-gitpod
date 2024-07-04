@@ -12,6 +12,11 @@
         }
     ],
     "settings": {
+        "files.exclude": {
+            ".gitpod.yml": true,
+            ".main-code-workspace": true,
+            ".bash.cfg": true
+        },
         "go.alternateTools": {
             "go": "/home/linuxbrew/.linuxbrew/bin/go",
         },
