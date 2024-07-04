@@ -2,6 +2,9 @@
     # define top-level directories to show in file explorer
     "folders": [
         {
+            "path": "../oms-gitpod"    # test to see if this fixes inability to load CSS file for VSCode
+        }
+        {
             "path": "../reference-app-orders-go"
         },
         {
